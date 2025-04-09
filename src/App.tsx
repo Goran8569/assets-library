@@ -1,9 +1,10 @@
+import AssetsLibrary from "./components/AssetsLibrary";
 import { AssetsProvider } from "./context/AssetsContext";
 
 function App() {
   return (
     <AssetsProvider>
-      <h1>Assets-Library</h1>
+      <AssetsLibrary />
     </AssetsProvider>
   );
 }
