@@ -1,5 +1,11 @@
+import { AssetsProvider } from "./context/AssetsContext";
+
 function App() {
-  return <h1>assets-library</h1>;
+  return (
+    <AssetsProvider>
+      <h1>Assets-Library</h1>
+    </AssetsProvider>
+  );
 }
 
 export default App;
