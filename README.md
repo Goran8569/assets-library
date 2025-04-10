@@ -1,26 +1,10 @@
 Coding Challenge - Assets Library
 
-# Features
+# Demo Version
 
-- Drag & Drop: Upload and organize files using drag and drop functionality
+Demo version to check:
 
-- Asset Types:
-
-  - Images
-  - Audio files
-  - Video files
-
-- Management:
-  - Upload multiple files
-  - Delete assets
-  - Filter assets by type
-  - Move assets between sections
-
-# Technologies
-
-- React 18
-- TypeScript
-- Vite
+https://assets-library-app.netlify.app/
 
 # Installation
 
@@ -53,6 +37,28 @@ nvm use
 -- If you don't have Node.js v20 installed yet, run:
 
 nvm install 20
+
+# Features
+
+- Drag & Drop: Upload and organize files using drag and drop functionality
+
+- Asset Types:
+
+  - Images
+  - Audio files
+  - Video files
+
+- Management:
+  - Upload multiple files
+  - Delete assets
+  - Filter assets by type
+  - Move assets between sections
+
+# Technologies
+
+- React 18
+- TypeScript
+- Vite
 
 # Uploading Assets
 
