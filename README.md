@@ -5,14 +5,16 @@ Coding Challenge - Assets Library
 - Drag & Drop: Upload and organize files using drag and drop functionality
 
 - Asset Types:
+
   - Images
   - Audio files
   - Video files
+
 - Management:
   - Upload multiple files
-  - Move assets between sections
   - Delete assets
   - Filter assets by type
+  - Move assets between sections
 
 # Technologies
 
@@ -36,11 +38,26 @@ npm run dev
 
 open `http://localhost:5173` on your browser
 
+--- NODE VERSION ---
+
+This project uses Node.js v20.
+
+To ensure you're using the correct version, follow these steps:
+
+Install nvm (Node Version Manager) if you haven't already.
+
+Navigate to the project directory and run the following command to use the correct Node version:
+
+nvm use
+
+-- If you don't have Node.js v20 installed yet, run:
+
+nvm install 20
+
 # Uploading Assets
 
 - Drag and drop files directly into the source or target section
-- On "Add Asset" button you can select files using the file browser
-- Supported file types: images, audio files, and videos
+- On "+" button you can select files using the file browser
 
 # Managing Assets
 

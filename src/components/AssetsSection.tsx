@@ -88,7 +88,7 @@ export const AssetsSection: React.FC<{
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
+    <div className="bg-gray-800 text-white rounded-lg shadow-md p-6">
       <div className="flex justify-between">
         <h2 className="text-xl font-semibold mb-4 capitalize">{section} Section</h2>
         <select className="rounded-lg cursor-pointer" value={filter} onChange={(e) => setFilter(e.target.value as "all" | AssetType)}>
@@ -105,16 +105,16 @@ export const AssetsSection: React.FC<{
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
             onClick={() => fileInputRef.current?.click()}
-            className={`border-2 border-dashed rounded-lg p-8 w-40 h-35 flex flex-col items-center justify-center transition-colors cursor-pointer ${isDraggingOver ? "border-blue-500 bg-blue-50" : "border-gray-300 bg-gray-50"}`}
+            className={`border-2 border-dashed rounded-lg p-8 w-40 h-35 flex flex-col items-center justify-center transition-colors cursor-pointer ${isDraggingOver ? "border-blue-500 bg-blue-900" : "border-gray-600 bg-gray-700"}`}
           >
-            <img src={AddIcon} alt="Add" />
+            <img src={AddIcon} alt="Add" className="filter invert" />
             <input ref={fileInputRef} type="file" className="hidden" multiple accept="image/*,audio/*,video/*" onChange={(e) => e.target.files && onUpload(e, section)} />
           </div>
 
           {sectionAssets.map((asset) => (
             <div
               key={asset.id}
-              className={`relative group bg-gray-100 w-44 p-2 rounded-sm cursor-grab ${selectedAssets.has(asset.id) ? "border-2 border-blue-500" : ""}`}
+              className={`relative group bg-gray-600 w-44 p-2 rounded-sm cursor-grab ${selectedAssets.has(asset.id) ? "border-2 border-blue-500" : ""}`}
               draggable
               onClick={() => onSelectAsset(asset.id)}
               onDragStart={(e) => {

@@ -96,18 +96,18 @@ const AssetsLibrary = () => {
   };
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="p-6 max-w mx-auto bg-gray-900 text-white min-h-screen">
       <div className="flex justify-between items-center mb-6">
-        <div className="flex justify-start items-center mb-6">
-          <img src={PhotoLibraryIcon} />
+        <div className="flex justify-start items-center">
+          <img src={PhotoLibraryIcon} className=" filter invert" />
           <h1 className="text-2xl font-bold ml-2">Assets</h1>
         </div>
         {selectedSourceAssets?.size > 0 && selectedTargetAsset && (
           <div className="mt-4 flex gap-4">
-            <button onClick={handleCancel} className="px-4 py-2 text-gray-500 rounded cursor-pointer">
+            <button onClick={handleCancel} className="px-4 py-2 text-gray-300 border border-gray-500 rounded cursor-pointer">
               Cancel
             </button>
-            <button onClick={handleSave} className="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer">
+            <button onClick={handleSave} className="px-4 py-2 bg-blue-600 text-white rounded cursor-pointer">
               Save
             </button>
           </div>
