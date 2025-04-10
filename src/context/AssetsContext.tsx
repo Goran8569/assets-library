@@ -10,6 +10,7 @@ interface AssetsContextType {
 
 const AssetsContext = createContext<AssetsContextType | undefined>(undefined);
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAssets = () => {
   const context = useContext(AssetsContext);
   if (!context) {

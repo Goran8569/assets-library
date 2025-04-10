@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { AssetType, Section } from "../types/assets";
+import { useRef, useState, useEffect } from "react";
+import { Section, AssetType } from "../types/assets";
 import { useAssets } from "../context/AssetsContext";
 import AddIcon from "@material-symbols/svg-400/outlined/add_circle.svg";
 import DeleteIcon from "@material-symbols/svg-400/outlined/delete.svg";
@@ -12,7 +12,10 @@ export const AssetsSection: React.FC<{
   section: Section;
   onDrop: (e: React.DragEvent, section: Section) => void;
   onUpload: (e: React.ChangeEvent<HTMLInputElement>, section: Section) => void;
-}> = ({ section, onDrop, onUpload }) => {
+  selectedAssets: Set<string>;
+  onSelectAsset: (assetId: string) => void;
+  isMultiSelect: boolean;
+}> = ({ section, onDrop, onUpload, selectedAssets, onSelectAsset }) => {
   const { assets, deleteAsset } = useAssets();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isDraggingOver, setIsDraggingOver] = useState(false);
@@ -88,7 +91,7 @@ export const AssetsSection: React.FC<{
     <div className="bg-white rounded-lg shadow-md p-6">
       <div className="flex justify-between">
         <h2 className="text-xl font-semibold mb-4 capitalize">{section} Section</h2>
-        <select className="px-4 py-2 border rounded-lg" value={filter} onChange={(e) => setFilter(e.target.value as "all" | AssetType)}>
+        <select className="rounded-lg cursor-pointer" value={filter} onChange={(e) => setFilter(e.target.value as "all" | AssetType)}>
           <option value="all">All</option>
           <option value="image">Images</option>
           <option value="audio">Audios</option>
@@ -111,8 +114,9 @@ export const AssetsSection: React.FC<{
           {sectionAssets.map((asset) => (
             <div
               key={asset.id}
-              className="relative group bg-gray-100 w-44 p-2 rounded-sm"
+              className={`relative group bg-gray-100 w-44 p-2 rounded-sm cursor-grab ${selectedAssets.has(asset.id) ? "border-2 border-blue-500" : ""}`}
               draggable
+              onClick={() => onSelectAsset(asset.id)}
               onDragStart={(e) => {
                 e.dataTransfer.setData("text/plain", asset.id);
               }}
